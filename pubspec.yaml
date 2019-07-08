@@ -6,11 +6,12 @@ homepage: https://github.com/ReinBentdal/division
 repository: https://github.com/ReinBentdal/division
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.1.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^0.5.3
 
 dev_dependencies:
   flutter_test:
