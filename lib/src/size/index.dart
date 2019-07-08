@@ -16,7 +16,7 @@ double normalize(
 
   double _size = sizes[size];
   if (_size == null) {
-    _size = f(size);
+    _size = sizes[size] = f(size);
   }
 
   return _size;
