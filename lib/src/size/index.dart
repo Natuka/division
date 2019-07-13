@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // 默认iphone 6设计尺寸
@@ -36,8 +37,8 @@ double normalize(RetDouble f, double size, Map<double, double> sizes) {
 
 // 宽度
 double getWidth(double width,
-    {bool useDefault = false, bool useHeight = false}) {
-  if (useDefault) {
+    {bool useDesignSize = true, bool useHeight = false}) {
+  if (!useDesignSize) {
     return width;
   }
 
@@ -50,16 +51,16 @@ double getWidth(double width,
 }
 
 // 高度
-double getHeight(double height, {bool useDefault = false}) {
-  if (useDefault) {
+double getHeight(double height, {bool useDesignSize = false}) {
+  if (!useDesignSize) {
     return height;
   }
   return normalize(ScreenUtil.getInstance().setHeight, height, heights);
 }
 
 // 尺寸，一般是字体的大小
-double getSize(double size, {bool useDefault = false}) {
-  if (useDefault) {
+double getSize(double size, {bool useDesignSize = false}) {
+  if (!useDesignSize) {
     return size;
   }
   return normalize(ScreenUtil.getInstance().setSp, size, fontSizes);
@@ -110,7 +111,7 @@ void setDesign({double width = 750, double height = 1334}) {
 }
 
 // 初始化
-void initSizeWithContext(context, {double width, double height}) {
+void initSizeWithContext(BuildContext context, {double width, double height}) {
   ScreenUtil.instance =
       ScreenUtil(width: width ?? designWidth, height: height ?? designHeight)
         ..init(context);

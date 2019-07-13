@@ -149,10 +149,10 @@ class StyleClass {
     right = right ?? horizontal ?? all;
 
     $padding = EdgeInsets.only(
-      top: getWidth(top ?? 0.0, useDefault: useDesignSize),
-      bottom: getWidth(bottom ?? 0.0, useDefault: useDesignSize),
-      left: getWidth(left ?? 0.0, useDefault: useDesignSize),
-      right: getWidth(right ?? 0.0, useDefault: useDesignSize),
+      top: getWidth(top ?? 0.0, useDesignSize: useDesignSize),
+      bottom: getWidth(bottom ?? 0.0, useDesignSize: useDesignSize),
+      left: getWidth(left ?? 0.0, useDesignSize: useDesignSize),
+      right: getWidth(right ?? 0.0, useDesignSize: useDesignSize),
     );
   }
 
@@ -176,10 +176,10 @@ class StyleClass {
     right = right ?? horizontal ?? all;
 
     $margin = EdgeInsets.only(
-      top: getWidth(top ?? 0.0, useDefault: useDesignSize),
-      bottom: getWidth(bottom ?? 0.0, useDefault: useDesignSize),
-      left: getWidth(left ?? 0.0, useDefault: useDesignSize),
-      right: getWidth(right ?? 0.0, useDefault: useDesignSize),
+      top: getWidth(top ?? 0.0, useDesignSize: useDesignSize),
+      bottom: getWidth(bottom ?? 0.0, useDesignSize: useDesignSize),
+      left: getWidth(left ?? 0.0, useDesignSize: useDesignSize),
+      right: getWidth(right ?? 0.0, useDesignSize: useDesignSize),
     );
   }
 
@@ -277,25 +277,25 @@ class StyleClass {
           ? BorderSide.none
           : BorderSide(
               color: color,
-              width: getWidth(left, useDefault: useDesignSize),
+              width: getWidth(left, useDesignSize: useDesignSize),
               style: style),
       right: right == null
           ? BorderSide.none
           : BorderSide(
               color: color,
-              width: getWidth(right, useDefault: useDesignSize),
+              width: getWidth(right, useDesignSize: useDesignSize),
               style: style),
       top: top == null
           ? BorderSide.none
           : BorderSide(
               color: color,
-              width: getWidth(top, useDefault: useDesignSize),
+              width: getWidth(top, useDesignSize: useDesignSize),
               style: style),
       bottom: bottom == null
           ? BorderSide.none
           : BorderSide(
               color: color,
-              width: getWidth(bottom, useDefault: useDesignSize),
+              width: getWidth(bottom, useDesignSize: useDesignSize),
               style: style),
     );
   }
@@ -313,14 +313,14 @@ class StyleClass {
     bottomRight = bottomRight ?? all;
 
     $borderRadius = BorderRadius.only(
-      topLeft:
-          Radius.circular(getWidth(topLeft ?? 0.0, useDefault: useDesignSize)),
-      topRight:
-          Radius.circular(getWidth(topRight ?? 0.0, useDefault: useDesignSize)),
+      topLeft: Radius.circular(
+          getWidth(topLeft ?? 0.0, useDesignSize: useDesignSize)),
+      topRight: Radius.circular(
+          getWidth(topRight ?? 0.0, useDesignSize: useDesignSize)),
       bottomLeft: Radius.circular(
-          getWidth(bottomLeft ?? 0.0, useDefault: useDesignSize)),
+          getWidth(bottomLeft ?? 0.0, useDesignSize: useDesignSize)),
       bottomRight: Radius.circular(
-          getWidth(bottomRight ?? 0.0, useDefault: useDesignSize)),
+          getWidth(bottomRight ?? 0.0, useDesignSize: useDesignSize)),
     );
   }
 
@@ -334,12 +334,12 @@ class StyleClass {
 
     if (offset.length == 1) {
       finalOffset = Offset(
-          getWidth(offset[0] ?? 0.0, useDefault: useDesignSize),
-          getWidth(offset[0] ?? 0.0, useDefault: useDesignSize));
+          getWidth(offset[0] ?? 0.0, useDesignSize: useDesignSize),
+          getWidth(offset[0] ?? 0.0, useDesignSize: useDesignSize));
     } else if (offset.length == 2) {
       finalOffset = Offset(
-          getWidth(offset[0] ?? 0.0, useDefault: useDesignSize),
-          getWidth(offset[1] ?? 0.0, useDefault: useDesignSize));
+          getWidth(offset[0] ?? 0.0, useDesignSize: useDesignSize),
+          getWidth(offset[1] ?? 0.0, useDesignSize: useDesignSize));
     }
 
     $boxShadow = [
@@ -403,22 +403,22 @@ class StyleClass {
   }
 
   void width(double width) =>
-      $width = getWidth(width, useDefault: useDesignSize);
+      $width = getWidth(width, useDesignSize: useDesignSize);
 
   void minWidth(double minWidth) =>
-      $minWidth = getWidth(minWidth, useDefault: useDesignSize);
+      $minWidth = getWidth(minWidth, useDesignSize: useDesignSize);
 
   void maxWidth(double maxWidth) =>
-      $maxWidth = getWidth(maxWidth, useDefault: useDesignSize);
+      $maxWidth = getWidth(maxWidth, useDesignSize: useDesignSize);
 
   void height(double height) => $height =
-      getWidth(height, useDefault: useDesignSize, useHeight: useHeight);
+      getWidth(height, useDesignSize: useDesignSize, useHeight: useHeight);
 
   void minHeight(double minHeight) => $minHeight =
-      getWidth(minHeight, useDefault: useDesignSize, useHeight: useHeight);
+      getWidth(minHeight, useDesignSize: useDesignSize, useHeight: useHeight);
 
   void maxHeight(double maxHeight) => $maxHeight =
-      getWidth(maxHeight, useDefault: useDesignSize, useHeight: useHeight);
+      getWidth(maxHeight, useDesignSize: useDesignSize, useHeight: useHeight);
 
   /// Must not be negative.
   /// 1 corresponds to normal size. 2 corresponds to double the size.
@@ -435,8 +435,8 @@ class StyleClass {
   /// ..offset(10.0, 5.0);
   /// ```
   void offset(double dx, double dy) => $offset = Offset(
-      getWidth(dx, useDefault: useDesignSize),
-      getWidth(dy, useDefault: useDesignSize));
+      getWidth(dx, useDesignSize: useDesignSize),
+      getWidth(dy, useDesignSize: useDesignSize));
 
   /// Widget rotation
   /// ```dart
