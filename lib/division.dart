@@ -11,3 +11,6 @@ export 'src/class/gesture_class.dart';
 
 // rgb() and rgba() function
 export 'src/function/color.dart';
+
+// initSizeWithContext() getWidth getHeight getSize|getFontSize...
+export 'src/size/index.dart';
