@@ -8,10 +8,22 @@ Map<double, double> widths = {};
 Map<double, double> heights = {};
 Map<double, double> fontSizes = {};
 
-double normalize(
-    double f(double value), double size, Map<double, double> sizes) {
+typedef double RetDouble(double value);
+
+double normalize(RetDouble f, double size, Map<double, double> sizes) {
   if (size == 0) {
     return size;
+  }
+
+  // 如果是无限大，那么直接返回
+  if (size == double.infinity) {
+    return size;
+  }
+
+  bool isNegative = size < 0;
+
+  if (isNegative) {
+    size = -size;
   }
 
   double _size = sizes[size];
@@ -19,7 +31,7 @@ double normalize(
     _size = sizes[size] = f(size);
   }
 
-  return _size;
+  return isNegative ? -_size : _size;
 }
 
 // 宽度
