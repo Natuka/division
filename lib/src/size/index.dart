@@ -9,7 +9,7 @@ Map<double, double> widths = {};
 Map<double, double> heights = {};
 Map<double, double> fontSizes = {};
 
-typedef double RetDouble(double value);
+typedef dynamic RetDouble(double value);
 
 double normalize(RetDouble f, double size, Map<double, double> sizes) {
   if (size == 0) {
